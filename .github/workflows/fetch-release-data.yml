@@ -28,9 +28,12 @@ jobs:
         jq -r '.[] | "- **Version:** \(.tag_name)\n  **Date:** \(.published_at)\n  **Changelog:** \(.body)"' releases.json > releases.md
         echo "Release data parsed to releases.md."
 
-        # Prepare b2c-changelog.md with header and append new release data
-        echo -e "# B2C Changelog\n\nThis page is automatically updated as changes are made.\n\n$(cat releases.md)" > b2c-changelog.md
-        echo "Updated b2c-changelog.md with latest release data."
+        # Ensure the docs directory exists
+        mkdir -p docs
+
+        # Prepare b2c-changelog.md in the docs folder with header and append new release data
+        echo -e "# B2C Changelog\n\nThis page is automatically updated as changes are made.\n\n$(cat releases.md)" > docs/b2c-changelog.md
+        echo "Updated docs/b2c-changelog.md with latest release data."
 
     - name: Commit and Push Markdown File
       env:
@@ -38,6 +41,6 @@ jobs:
       run: |
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
-        git add b2c-changelog.md
-        git commit -m "Update b2c-changelog.md with release data"
+        git add docs/b2c-changelog.md
+        git commit -m "Update docs/b2c-changelog.md with release data"
         git push
