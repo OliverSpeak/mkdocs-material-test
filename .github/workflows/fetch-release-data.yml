@@ -1,0 +1,43 @@
+name: Fetch Release Data and Update Changelog
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  fetch-and-update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Fetch Release Data
+      id: fetch_releases
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_SEMANTIC_READ_PAT }}
+      run: |
+        # Fetch release data from GitHub API
+        curl -H "Authorization: Bearer $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/OliverSpeak/semantic-test/releases > releases.json
+        echo "Fetched release data."
+
+        # Parse release data into Markdown format
+        jq -r '.[] | "- **Version:** \(.tag_name)\n  **Date:** \(.published_at)\n  **Changelog:** \(.body)"' releases.json > releases.md
+        echo "Release data parsed to releases.md."
+
+        # Prepare b2c-changelog.md with header and append new release data
+        echo -e "# B2C Changelog\n\nThis page is automatically updated as changes are made.\n\n$(cat releases.md)" > b2c-changelog.md
+        echo "Updated b2c-changelog.md with latest release data."
+
+    - name: Commit and Push Markdown File
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add b2c-changelog.md
+        git commit -m "Update b2c-changelog.md with release data"
+        git push
