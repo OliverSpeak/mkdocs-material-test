@@ -1,0 +1,38 @@
+name: Deploy MkDocs Material
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Set up Python
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      # Install dependencies for MkDocs Material
+      - name: Install MkDocs Material
+        run: |
+          pip install mkdocs-material
+          pip install -r requirements.txt  # Include additional dependencies if needed
+
+      # Build the site
+      - name: Build MkDocs Material site
+        run: mkdocs build --strict
+
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
