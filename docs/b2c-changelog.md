@@ -2,6 +2,23 @@
 
 This page is automatically updated as changes are made.
 
+- **Version:** v1.5.0
+  **Date:** 2024-11-29T09:54:22Z
+  **Changelog:** # [1.5.0](https://github.com/OliverSpeak/semantic-test/compare/v1.4.0...v1.5.0) (2024-11-29)
+
+
+### Bug Fixes
+
+* ryan test 2 ([e328b0a](https://github.com/OliverSpeak/semantic-test/commit/e328b0ae91375e9af1a583dfc9ce54abd1709144))
+
+
+### Features
+
+* ryan demot test ([ba0ab53](https://github.com/OliverSpeak/semantic-test/commit/ba0ab53502bbcbfe00f2d85d87f32356e18f388e))
+
+
+
+
 - **Version:** v1.4.0
   **Date:** 2024-11-29T09:42:03Z
   **Changelog:** # [1.4.0](https://github.com/OliverSpeak/semantic-test/compare/v1.3.3...v1.4.0) (2024-11-29)
