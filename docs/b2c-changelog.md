@@ -2,6 +2,42 @@
 
 This page is automatically updated as changes are made.
 
+- **Version:** v1.4.0
+  **Date:** 2024-11-29T09:42:03Z
+  **Changelog:** # [1.4.0](https://github.com/OliverSpeak/semantic-test/compare/v1.3.3...v1.4.0) (2024-11-29)
+
+
+### Features
+
+* husdfhaushdfuiashuifas ([bd9b44b](https://github.com/OliverSpeak/semantic-test/commit/bd9b44b5658f4960beb998b5b9c74329434dd66d))
+
+
+
+
+- **Version:** v1.3.3
+  **Date:** 2024-11-29T09:39:52Z
+  **Changelog:** ## [1.3.3](https://github.com/OliverSpeak/semantic-test/compare/v1.3.2...v1.3.3) (2024-11-29)
+
+
+### Bug Fixes
+
+* pr permission ([7932c82](https://github.com/OliverSpeak/semantic-test/commit/7932c82c39b585aa7d55cddcc99414ae1f45b73f))
+
+
+
+
+- **Version:** v1.3.2
+  **Date:** 2024-11-29T09:37:21Z
+  **Changelog:** ## [1.3.2](https://github.com/OliverSpeak/semantic-test/compare/v1.3.1...v1.3.2) (2024-11-29)
+
+
+### Bug Fixes
+
+* test commit ([fcc8671](https://github.com/OliverSpeak/semantic-test/commit/fcc867158df68f8486bc47ce6f5b917432108174))
+
+
+
+
 - **Version:** v1.3.1
   **Date:** 2024-11-28T15:50:34Z
   **Changelog:** ## [1.3.1](https://github.com/OliverSpeak/semantic-test/compare/v1.3.0...v1.3.1) (2024-11-28)
